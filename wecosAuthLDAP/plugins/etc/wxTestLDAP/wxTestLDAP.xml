@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+   <name>wxTestLDAP</name>
+   <displayName>LDAP Login Test Plugin</displayName>
+   <creationDate>2010-08-26</creationDate>
+   <author>Heiko Weber</author>
+   <authorEmail>heiko@wecos.de</authorEmail>
+   <authorUrl>http://www.wecos.de</authorUrl>
+   <license>GPL</license>
+   <description>Allow to test LDAP authentication</description>
+   <version>0.0.1</version>
+   <oxversion>2.8.3</oxversion>
+   <extends>admin</extends>
+
+   <install>
+      <files>
+         <file path="{ADMINPATH}/">wxTestLDAP.php</file>
+         <file path="{ADMINPATH}/navigation/">wxChecker.php</file>
+      </files>
+
+      <configuration>
+         <setting key="enableTest" type="checkbox" label="Enable LDAP Authentication Testpage" required="1"  visible="1">0</setting>
+      </configuration>
+        
+      <navigation>
+         <checkers>
+            <checker class="Plugins_admin_wxAuthLDAP_wxTestLDAPChecker" include="wxChecker.php" />
+         </checkers>
+         <admin>
+            <menu add="wxTestLDAP" link="plugins/wxTestLDAP/wxTestLDAP.php" checker="Plugins_admin_wxAuthLDAP_wxTestLDAPChecker">LDAP Testpage</menu>
+            <menu addto="wxTestLDAP" index="wxTestLDAP-i" link="plugins/wxTestLDAP/wxTestLDAP.php">LDAP Login Testpage</menu>
+         </admin>
+
+      </navigation>
+
+      <components>
+      </components>
+
+   </install>
+    
+</plugin>

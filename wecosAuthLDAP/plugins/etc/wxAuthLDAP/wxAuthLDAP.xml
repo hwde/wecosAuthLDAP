@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+   <name>wxAuthLDAP</name>
+   <displayName>LDAP Authentication Plugin</displayName>
+   <creationDate>2010-08-26</creationDate>
+   <author>Heiko Weber</author>
+   <authorEmail>heiko@wecos.de</authorEmail>
+   <authorUrl>http://www.wecos.de</authorUrl>
+   <license>GPL</license>
+   <description>Adds LDAP authentication to OpenX/Revive adserver</description>
+   <version>0.0.1</version>
+   <oxversion>2.8.3</oxversion>
+   <extends>authentication</extends>
+
+   <install>
+      <syscheck>
+         <dbms>
+            <name>mysqli</name>
+            <supported>1</supported>
+         </dbms>
+         <dbms>
+            <name>pgsql</name>
+            <supported>1</supported>
+         </dbms>
+
+      </syscheck>
+
+      <files>
+         <file path="{MODULEPATH}authentication/wxAuthLDAP/">wxAuthLDAP.class.php</file>
+         <file path="{MODULEPATH}authentication/wxAuthLDAP/">WecosLDAPClient.php</file>
+      </files>
+
+      <configuration>
+         <setting key="ldapOnly"           type="checkbox" label="LDAP Authentication only (fallback to OpenX database otherwise)" required="1"  visible="1">0</setting>
+         <setting key="connectionHost"     type="text" label="LDAP Host"           required="1" size="80" visible="1">ldap.host</setting>
+         <setting key="connectionVersion"  type="text" label="LDAP Version"        required="1" size="10" visible="1">3</setting>
+         <setting key="connectionPort"     type="text" label="LDAP Port"           required="1" size="10" visible="1">389</setting>
+         <setting key="connectionName"     type="text" label="LDAP Bind User"      required="1" size="80" visible="1">cn=binduser,ou=accounts,ou=company,ou=people,o=companyldap</setting>
+         <setting key="connectionPassword" type="password" label="LDAP Bind User Password"   required="1" size="80" visible="1"></setting>
+         <setting key="userBase"           type="text" label="User Base"           required="1" size="80" visible="1">ou=accounts,ou=company,ou=people,o=companyldap</setting>
+         <setting key="userSearch"         type="text" label="User Search Pattern" required="1" size="80" visible="1">(uid=%s)</setting>
+      </configuration>
+        
+      <components>
+      </components>
+
+   </install>
+    
+</plugin>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+   <name>wecosAuthLDAP</name>
+   <displayName>LDAP Authentication Plugin</displayName>
+   <creationDate>2010-08-26</creationDate>
+   <author>Heiko Weber</author>
+   <authorEmail>heiko@wecos.de</authorEmail>
+   <authorUrl>http://www.wecos.de</authorUrl>
+   <license>GPL</license>
+   <description>LDAP authentication plugin</description>
+   <version>0.0.1</version>
+   <oxversion>2.8.5</oxversion>
+   <type>package</type>
+   
+   <install>
+
+      <files>
+         <file path="{PLUGINPATH}">wecosAuthLDAP.readme.txt</file>
+      </files>
+
+      <contents>
+         <group name="wxAuthLDAP">1</group>
+         <group name="wxTestLDAP">2</group>
+      </contents>
+
+   </install>
+
+</plugin>
