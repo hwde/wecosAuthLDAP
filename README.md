@@ -1,4 +1,4 @@
-# wecosAuthLDAP
+# wecosAuthLDAP - LDAP Authentication for Revive Adserver
 
 This plugin offers the possibility to replace the standard (local) login with LDAP. There is an option to fallback to local authentication - hoping not to lock itself out after installation. In this respect, here briefly the usual procedure for the installation:
 
