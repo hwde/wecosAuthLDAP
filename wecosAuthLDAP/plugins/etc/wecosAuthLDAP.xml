@@ -10,7 +10,7 @@
    <authorUrl>http://www.wecos.de</authorUrl>
    <license>GPL</license>
    <description>LDAP authentication plugin</description>
-   <version>0.0.1</version>
+   <version>0.0.2</version>
    <oxversion>2.8.5</oxversion>
    <type>package</type>
    
