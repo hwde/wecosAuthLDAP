@@ -35,7 +35,7 @@ class Plugins_Authentication_WxAuthLDAP_WxAuthLDAP extends Plugins_Authenticatio
      * @param string $password
      * @return mixed A DataObjects_Users instance, or false if no matching user was found
      */
-    function checkPassword($username, $password)
+    function checkPassword($username, $password, bool $allowMd5 = true)
     {
         global $conf;
 
@@ -47,7 +47,7 @@ class Plugins_Authentication_WxAuthLDAP_WxAuthLDAP extends Plugins_Authenticatio
             $doUser->find();
 
             if ($doUser->fetch()) {
-                return parent::checkPassword($username, $doUser->password);
+                return parent::checkPassword($username, $doUser->password, $allowMd5);
             }
             OA::debug("WxAuthLDAP: User '".$username."' authenticated by LDAP, but no matching OpenX user exists.");
         } else {
@@ -57,7 +57,7 @@ class Plugins_Authentication_WxAuthLDAP_WxAuthLDAP extends Plugins_Authenticatio
             }
         }
 
-        return !empty($conf['wxAuthLDAP']['ldapOnly']) ? false : parent::checkPassword($username, $password);
+        return !empty($conf['wxAuthLDAP']['ldapOnly']) ? false : parent::checkPassword($username, $password, $allowMd5);
     }
 }
 
