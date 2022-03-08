@@ -47,7 +47,7 @@ class Plugins_Authentication_WxAuthLDAP_WxAuthLDAP extends Plugins_Authenticatio
             $doUser->find();
 
             if ($doUser->fetch()) {
-                return parent::checkPassword($username, $doUser->password, $allowMd5);
+                return $doUser;
             }
             OA::debug("WxAuthLDAP: User '".$username."' authenticated by LDAP, but no matching OpenX user exists.");
         } else {
