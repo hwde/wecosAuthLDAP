@@ -126,6 +126,9 @@ class WecosLDAPClient {
      */
     function connect_user($password, $dn) {
         $func = 'connect_user';
+        if(!$password) {
+            return $this->set_error($func, 'Anonymous bind denied');
+        }
         
         if (($this->ldap_con = @ldap_connect(
                                             $this->ldap_param['connectionHost'],
@@ -168,6 +171,9 @@ class WecosLDAPClient {
      */
     function checkPassword($username, $password) {
         $func = 'checkPassword';
+        if(!$password) {
+            return $this->set_error($func, 'Empty password supplied');
+        }
 
         if ($this->connect_default()) {
             $filter = sprintf($this->ldap_param['userSearch'], self::escape($username));
