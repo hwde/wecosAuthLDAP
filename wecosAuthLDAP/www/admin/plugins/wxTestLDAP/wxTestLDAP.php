@@ -56,7 +56,7 @@ if (isset($session['wxTestLDAP'])) {
    <input name="name" type="text" />
    <br />
    Password:<br />
-   <input name="pw" type="password" />
+   <input name="pw" type="password" autocomplete="off" />
    <br />
    <br />
    <input type="submit" name="testLDAP" value="Test LDAP Login" />

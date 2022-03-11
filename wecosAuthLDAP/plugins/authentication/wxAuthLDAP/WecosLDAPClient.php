@@ -233,7 +233,7 @@ class WecosLDAPClient {
                 $c = dechex($c);
                 $ret .= '\\'.((strlen($c) != 2) ? '0'.$c : $c);
             } else {
-                if ($c == ord('(') || $c == ord(')') || $c == ord('*') || $c == ord('\\')) {
+                if (strpos('&()*,;=\\|', chr($c)) !== false) {
                     $ret .= '\\';
                 }
                 $ret .= chr($c);
